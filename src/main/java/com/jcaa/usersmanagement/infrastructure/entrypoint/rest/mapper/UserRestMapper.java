@@ -17,7 +17,6 @@ public class UserRestMapper {
 
   public CreateUserCommand toCreateCommand(final CreateUserRestRequest request) {
     return new CreateUserCommand(
-        request.id(),
         request.name(),
         request.email(),
         request.password(),

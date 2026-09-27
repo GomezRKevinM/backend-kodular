@@ -12,6 +12,8 @@ import com.jcaa.usersmanagement.domain.valueobject.UserId;
 import com.jcaa.usersmanagement.domain.valueobject.UserName;
 import com.jcaa.usersmanagement.domain.valueobject.UserPassword;
 import java.util.Objects;
+import java.util.UUID;
+
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
@@ -19,7 +21,7 @@ public class UserApplicationMapper {
 
   public UserModel fromCreateCommandToModel(final CreateUserCommand command) {
     return UserModel.create(
-        new UserId(command.id()),
+        new UserId(UUID.randomUUID().toString()),
         new UserName(command.name()),
         new UserEmail(command.email()),
         UserPassword.fromPlainText(command.password()),
